@@ -1,0 +1,15 @@
+html,
+body {
+  margin: 0px;
+}
+
+/* app conatiner */
+#__next {
+  max-width: 700px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  width: 100%;
+  margin: 0px auto;
+  background-color: gray;
+}
