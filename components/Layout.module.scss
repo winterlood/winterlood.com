@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  > header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-bottom: 1px solid $color_grey3;
+
+    > div {
+      @include container_layout;
+    }
+  }
+  > main {
+    padding-top: 95px;
+    padding-bottom: 55px;
+    @include container_layout;
+  }
+  > footer {
+  }
+}

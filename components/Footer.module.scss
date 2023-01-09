@@ -1,0 +1,9 @@
+.container {
+  height: 100px;
+  padding-top: 50px;
+  border-top: 1px solid $color_grey3;
+  display: flex;
+  justify-content: center;
+  color: $color_grey2;
+  font-size: typho("desc");
+}

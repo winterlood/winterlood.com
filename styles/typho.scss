@@ -1,4 +1,4 @@
-/* typho */
+/* Typho */
 
 $typho_size_map: (
   "h1": 40px,
@@ -7,6 +7,7 @@ $typho_size_map: (
   "h4": 20px,
   "h5": 18px,
   "p": 16px,
+  "nav": 14px,
   "desc": 14px,
   "label": 14px,
 );
@@ -16,15 +17,16 @@ $typho_size_map: (
 }
 
 @mixin typho_button($color) {
-  font-size: $typho("p");
+  font-size: typho("p");
   font-weight: bold;
   color: $color;
 }
 
 @mixin typho_nav_menu() {
+  font-size: typho("nav");
 }
 
-/* font face */
+/* Fontface */
 @font-face {
   font-family: "bold";
   font-weight: 700;
