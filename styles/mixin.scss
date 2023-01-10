@@ -1,21 +1,13 @@
-$breakpoint-mobile: 335px;
-$breakpoint-tablet: 758px;
-$breakpoint-desktop: 1024px;
+$breakpoint-mobile: 480px;
 
 @mixin mobile {
-  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+  @media (max-width: #{$breakpoint-mobile}) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: #{$breakpoint-desktop}) {
+  @media (min-width: #{$breakpoint-mobile + 1px}) {
     @content;
   }
 }
@@ -34,4 +26,8 @@ $breakpoint-desktop: 1024px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+}
+
+@mixin shadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

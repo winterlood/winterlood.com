@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $color_grey3;
+
+    .title {
+      font-size: typho("h3");
+      font-family: bold;
+    }
+    .subtitle {
+      font-size: typho("p");
+    }
+    .create_time {
+      font-size: typho("desc");
+      color: $color_grey2;
+    }
+
+    .author_row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .author_avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-size: cover;
+      }
+      .author_name {
+        font-size: typho("p");
+      }
+    }
+  }
+  .thubmnail_wrapper {
+    width: 100%;
+    .thumbnail {
+      height: 200px;
+      max-width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .main {
+  }
+}

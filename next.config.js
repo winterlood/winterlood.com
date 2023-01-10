@@ -11,6 +11,10 @@ const nextConfig = {
       `@import '/styles/mixin.scss';`,
     ].join(" "),
   },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+    NOTION_AUTH_TOKEN: process.env.NOTION_AUTH_TOKEN,
+  },
 };
 
 module.exports = nextConfig;

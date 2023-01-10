@@ -3,23 +3,13 @@ import { ReactElement } from "react";
 interface IPost {
   id: string;
   title: string;
+  subtitle: string;
+  tags: string[];
+  createTime: string;
   cover: string;
-  tags: string[];
-  createTime: string;
-  subtitle: string;
+  [key: string]: string | string[];
 }
 
-interface IPageProperty {
-  title: string;
-  tags: string[];
-  createTime: string;
-  lastUpdateTime: string;
-  subtitle: string;
-}
-
-interface IPageInfo {
-  recordMap: ExtendedRecordMap;
-  pageProperty: IPageProperty;
-}
+type IExtraPage = "NEWS";
 
 type IChildren = string | ReactElement | ReactElement[];

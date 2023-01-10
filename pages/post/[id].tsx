@@ -1,46 +1,62 @@
-import { GetStaticProps, NextPageContext } from "next";
+import { GetStaticProps, InferGetStaticPropsType, NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import { getPageDetailInfo } from "lib/server/notion";
-
+import { getPostDetail } from "lib/server/notion";
 import { NotionRenderer } from "react-notion-x";
 import { ExtendedRecordMap } from "notion-types";
-import "react-notion-x/src/styles.css";
+import { IPost } from "types/global";
+import style from "./[id].module.scss";
+import classNames from "classnames/bind";
+import MetaHead from "components/MetaHead";
+const cx = classNames.bind(style);
 
 interface IProps {
   pageID: string;
-  pageInfo: IPageInfo;
+  postInfo: IPost;
+  postRecordMap: ExtendedRecordMap;
 }
 
 interface IParams extends ParsedUrlQuery {
   id: string;
 }
 
-export default function Page({ pageID, pageInfo }: IProps) {
+export default function Page(
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) {
   const router = useRouter();
   if (router.isFallback) {
     return <div>loading</div>;
   }
 
-  console.log(pageInfo);
-
   const {
-    recordMap,
-    pageProperty: { title, tags, createTime },
-  } = pageInfo;
+    postInfo: { createTime, title, subtitle, cover },
+    postRecordMap,
+  } = props;
 
   return (
-    <div>
-      게시글 아이디 : {pageID}
-      <div>{title}</div>
-      {/* <div>{tags.join(" ")}</div> */}
-      <div>{new Date(createTime).toLocaleDateString()}</div>
-      <div>
+    <div className={cx("container")}>
+      <MetaHead title={title} description={subtitle} thumbnail={cover} />
+      <div className={cx("thubmnail_wrapper")}>
+        {cover && (
+          <div
+            className={cx("thumbnail")}
+            style={{ backgroundImage: `url(${cover})` }}
+          ></div>
+        )}
+      </div>
+      <div className={cx("header")}>
+        <div className={cx("create_time")}>
+          {new Date(createTime).toLocaleDateString()}
+        </div>
+        <div className={cx("title")}>{title}</div>
+        <div className={cx("subtitle")}>{subtitle}</div>
+      </div>
+      <div className={cx("main")}>
         <NotionRenderer
           showTableOfContents={true}
           darkMode={false}
           previewImages={true}
-          recordMap={recordMap}
+          recordMap={postRecordMap}
         />
       </div>
     </div>
@@ -54,16 +70,20 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps<IProps> = async (ctx) => {
   const { id } = ctx.params as IParams;
-
-  const pageInfo = await getPageDetailInfo(id);
-
-  return {
-    props: {
-      pageID: id,
-      pageInfo,
-    },
-    revalidate: 30,
-  };
+  const detailResponse = await getPostDetail(id);
+  if (detailResponse) {
+    const { postInfo, postRecordMap } = detailResponse;
+    return {
+      props: {
+        pageID: id,
+        postInfo,
+        postRecordMap,
+      },
+      revalidate: 30,
+    };
+  } else {
+    throw new Error();
+  }
 };

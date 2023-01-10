@@ -9,7 +9,6 @@ import Link from "next/link";
 
 const navArray = [
   { pageName: "home", path: "/" },
-  { pageName: "about", path: "/about" },
   { pageName: "post", path: "/post" },
 ];
 
@@ -20,12 +19,14 @@ export default function Header() {
   return (
     <div className={cx("container")}>
       <div className={cx("avatar_col")}>
-        <Image
-          src={profileImage}
-          alt={"winterlood"}
-          placeholder="blur"
-          fill={true}
-        />
+        <Link href={"/"}>
+          <Image
+            src={profileImage}
+            alt={"winterlood"}
+            placeholder="blur"
+            fill={true}
+          />
+        </Link>
       </div>
       <nav className={cx("nav_col")}>
         {navArray.map((it) => (

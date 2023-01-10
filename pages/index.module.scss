@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  > section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .header {
+      //   text-align: center;
+      font-size: typho("h5");
+      color: $color_grey1;
+      font-family: medium;
+    }
+  }
+  .section_profile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color_grey4;
+    .avatar_row {
+      display: flex;
+      justify-content: center;
+      .avatar_box {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        img {
+          @include shadow;
+          border-radius: 50%;
+        }
+      }
+    }
+    .meta_info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .name {
+        font-size: typho("h5");
+        font-family: medium;
+      }
+      .aka {
+        font-size: typho("desc");
+        font-family: medium;
+        color: $color_grey2;
+      }
+    }
+    .descript {
+      font-size: typho("p");
+      color: $color_grey1;
+    }
+    .contact_item_list {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      > span {
+        font-size: typho("desc");
+        color: $color_primary;
+      }
+    }
+  }
+
+  .section_new {
+  }
+  .section_post {
+    .post_list_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
