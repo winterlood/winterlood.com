@@ -8,6 +8,8 @@ import { Router } from "next/router";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import MetaHead from "components/MetaHead";
+import Head from "next/head";
+import ExternalScript from "lib/client/ExternalScript";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -26,6 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <Layout>
+      <Head>
+        <ExternalScript />
+      </Head>
       <MetaHead />
       <Component {...pageProps} />
     </Layout>
