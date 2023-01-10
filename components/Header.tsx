@@ -16,7 +16,6 @@ const navArray = [
 export default function Header() {
   const router = useRouter();
   const curFirstLocation = router.pathname.split("/")[1] || "home";
-  console.log(curFirstLocation);
 
   return (
     <div className={cx("container")}>

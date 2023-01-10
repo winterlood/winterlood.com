@@ -1,0 +1,28 @@
+.container {
+  > a:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  > a {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+
+    .title {
+      font-size: typho("h3");
+    }
+    .subtitle {
+      font-size: typho("p");
+      color: $color_grey2;
+    }
+    .desc {
+      font-size: typho("desc");
+      color: $color_grey2;
+    }
+  }
+}

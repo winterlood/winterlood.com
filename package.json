@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.3",
     "axios": "^1.2.2",
     "classnames": "^2.3.2",
     "next": "13.1.1",

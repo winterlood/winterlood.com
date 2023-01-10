@@ -22,6 +22,8 @@ export default function Page({ pageID, pageInfo }: IProps) {
     return <div>loading</div>;
   }
 
+  console.log(pageInfo);
+
   const {
     recordMap,
     pageProperty: { title, tags, createTime },
@@ -31,7 +33,7 @@ export default function Page({ pageID, pageInfo }: IProps) {
     <div>
       게시글 아이디 : {pageID}
       <div>{title}</div>
-      <div>{tags.join(" ")}</div>
+      {/* <div>{tags.join(" ")}</div> */}
       <div>{new Date(createTime).toLocaleDateString()}</div>
       <div>
         <NotionRenderer
