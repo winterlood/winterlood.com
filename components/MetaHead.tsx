@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import thumbnail from "public/image/winterlood_thumbnail.jpg";
+import thumbnail from "public/image/thumbnail.png";
 
 // TYPES
 
