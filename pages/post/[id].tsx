@@ -8,6 +8,7 @@ import { IPost } from "types/global";
 import style from "./[id].module.scss";
 import classNames from "classnames/bind";
 import MetaHead from "components/MetaHead";
+import Utterances from "components/Utterances";
 const cx = classNames.bind(style);
 
 interface IProps {
@@ -52,13 +53,9 @@ export default function Page(
         <div className={cx("subtitle")}>{subtitle}</div>
       </div>
       <div className={cx("main")}>
-        <NotionRenderer
-          showTableOfContents={true}
-          darkMode={false}
-          previewImages={true}
-          recordMap={postRecordMap}
-        />
+        <NotionRenderer showTableOfContents={true} recordMap={postRecordMap} />
       </div>
+      <Utterances />
     </div>
   );
 }
