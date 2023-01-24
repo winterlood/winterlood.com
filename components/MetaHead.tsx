@@ -8,6 +8,7 @@ interface Props {
   title?: string;
   thumbnail?: string;
   description?: string;
+  url?: string;
 }
 
 // COMPONENT
@@ -30,10 +31,11 @@ const MetaHead = (props: Props) => {
       locale: "ko",
     },
     twitter: {
+      card: "summary",
       title,
       image,
       description,
-      card: "image",
+      site: "https://winterlood.com",
     },
   };
 
