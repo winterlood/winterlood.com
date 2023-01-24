@@ -19,7 +19,7 @@ export default function PostItem(props: IProps) {
         ></div>
         <div className={cx("info_col")}>
           <div className={cx("title")}>{props.title}</div>
-          <div className={cx("subtitle")}>{props.subtitle} 작성</div>
+          <div className={cx("subtitle")}>{props.subtitle}</div>
           <div className={cx("desc")}>
             <div className={cx("create_time")}>
               {new Date(props.createTime).toLocaleDateString()} 작성
