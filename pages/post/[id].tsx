@@ -4,11 +4,17 @@ import { ParsedUrlQuery } from "querystring";
 import { getPostDetail } from "lib/server/notion";
 import { NotionRenderer } from "react-notion-x";
 import { ExtendedRecordMap } from "notion-types";
-import { IPost } from "types/global";
+import { ICodeBlock, IPost } from "types/global";
 import style from "./[id].module.scss";
 import classNames from "classnames/bind";
 import MetaHead from "components/MetaHead";
 import Utterances from "components/Utterances";
+import dynamic from "next/dynamic";
+
+const DynamicCode = dynamic(() => import("components/Code"), {
+  loading: () => <>코드를 불러오는 중 입니다 ...</>,
+  ssr: false,
+});
 const cx = classNames.bind(style);
 
 interface IProps {
@@ -53,7 +59,15 @@ export default function Page(
         <div className={cx("subtitle")}>{subtitle}</div>
       </div>
       <div className={cx("main")}>
-        <NotionRenderer showTableOfContents={true} recordMap={postRecordMap} />
+        <NotionRenderer
+          components={{
+            Code: (e: ICodeBlock) => {
+              return <DynamicCode {...e} />;
+            },
+          }}
+          showTableOfContents={true}
+          recordMap={postRecordMap}
+        />
       </div>
       <Utterances />
     </div>

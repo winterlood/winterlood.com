@@ -1,5 +1,14 @@
 import { ReactElement } from "react";
 
+interface ICodeBlock {
+  block: {
+    properties: {
+      title: string[][];
+      language: string[][];
+    };
+  };
+}
+
 interface IPost {
   id: string;
   title: string;
