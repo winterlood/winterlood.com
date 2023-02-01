@@ -29,6 +29,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Head>
+        <meta
+          name="naver-site-verification"
+          content="3cb3706aca7852f4f54eb71aee714f7d96b53fd2"
+        />
         <ExternalScript />
       </Head>
       <MetaHead />
