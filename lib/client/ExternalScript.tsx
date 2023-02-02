@@ -8,8 +8,7 @@ const scriptReducer = (type: ScriptType) => {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-GQ72JG3RFK');
+  gtag('config', ${process.env.GA_TRACKING_ID});
       `;
     default:
       return ``;
@@ -23,7 +22,7 @@ const ExternalScript = () => {
       {/*  eslint-disable-next-line @next/next/next-script-for-ga */}
       <script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-GQ72JG3RFK"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
       ></script>
       <script
         dangerouslySetInnerHTML={{
