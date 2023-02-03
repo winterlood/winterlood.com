@@ -18,6 +18,13 @@ const scriptReducer = (type: ScriptType) => {
 const ExternalScript = () => {
   return (
     <>
+      {/* 구글 애드센스 */}
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8356725717508400"
+        //@ts-ignore
+        crossorigin="anonymous"
+      ></script>
       {/* 구글 애널리틱스 */}
       {/*  eslint-disable-next-line @next/next/next-script-for-ga */}
       <script
