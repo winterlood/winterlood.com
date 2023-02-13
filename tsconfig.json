@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,7 +22,8 @@
       "lib/*": ["lib/*"],
       "hoc/*": ["hoc/*"],
       "hooks/*": ["hooks/*"]
-    }
+    },
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "types": ["@types/gtag.js"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

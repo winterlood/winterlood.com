@@ -24,7 +24,7 @@ export default function Code({
     properties: { title, language },
   },
 }: ICodeBlock) {
-  const code = title.at(0)?.at(0);
+  const code = title.map((it) => it.join("")).join("");
   const lang = language.at(0)?.at(0);
 
   return (
