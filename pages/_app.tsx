@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Layout from "components/Layout";
 import "react-notion-x/src/styles.css";
+import { Analytics } from "@vercel/analytics/react";
 
 import MetaHead from "components/MetaHead";
 import Head from "next/head";
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ExternalScript />
       </Head>
       <MetaHead />
+      <Analytics />
       <Component {...pageProps} />
     </Layout>
   );
