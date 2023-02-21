@@ -15,6 +15,7 @@ const nextConfig = {
     BASE_URL: process.env.BASE_URL,
     NOTION_AUTH_TOKEN: process.env.NOTION_AUTH_TOKEN,
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
+    GOOGLE_AD_CLIENT: process.env.GOOGLE_AD_CLIENT,
   },
 };
 

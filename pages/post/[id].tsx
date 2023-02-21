@@ -10,6 +10,8 @@ import classNames from "classnames/bind";
 import MetaHead from "components/MetaHead";
 import Utterances from "components/Utterances";
 import dynamic from "next/dynamic";
+import Script from "next/script";
+import Ad from "components/Ad";
 
 const DynamicCode = dynamic(() => import("components/Code"), {
   loading: () => <>코드를 불러오는 중 입니다 ...</>,
@@ -43,6 +45,7 @@ export default function Page(
   return (
     <div className={cx("container")}>
       <MetaHead title={title} description={subtitle} thumbnail={cover} />
+
       <div className={cx("thubmnail_wrapper")}>
         {cover && (
           <div
@@ -59,6 +62,7 @@ export default function Page(
         <div className={cx("subtitle")}>{subtitle}</div>
       </div>
       <div className={cx("main")}>
+        <Ad type={"NATIVE_INFEED"} />
         <NotionRenderer
           components={{
             Code: (e: ICodeBlock) => {
@@ -70,6 +74,9 @@ export default function Page(
         />
       </div>
       <Utterances />
+      <div>
+        <Ad type={"MULTIFLEX"} />
+      </div>
     </div>
   );
 }
