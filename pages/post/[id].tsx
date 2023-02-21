@@ -44,7 +44,6 @@ export default function Page(
   return (
     <div className={cx("container")}>
       <MetaHead title={title} description={subtitle} thumbnail={cover} />
-      {/* <Ad type={"NATIVE_INFEED"} /> */}
       <div className={cx("thubmnail_wrapper")}>
         {cover && (
           <div
@@ -60,6 +59,7 @@ export default function Page(
         <div className={cx("title")}>{title}</div>
         <div className={cx("subtitle")}>{subtitle}</div>
       </div>
+      <Ad type={"NATIVE_INFEED"} />
       <div className={cx("main")}>
         <NotionRenderer
           components={{
