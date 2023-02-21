@@ -2,6 +2,7 @@ import style from "./index.module.scss";
 import classNames from "classnames/bind";
 import Image from "next/image";
 import winterlood from "public/image/winterlood.png";
+
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { ExtendedRecordMap } from "notion-types";
 import { getExtraPageRecordMap, getPostList } from "lib/server/notion";

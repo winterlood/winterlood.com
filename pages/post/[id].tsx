@@ -10,7 +10,6 @@ import classNames from "classnames/bind";
 import MetaHead from "components/MetaHead";
 import Utterances from "components/Utterances";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import Ad from "components/Ad";
 
 const DynamicCode = dynamic(() => import("components/Code"), {

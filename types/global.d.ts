@@ -5,6 +5,7 @@ interface ICodeBlock {
     properties: {
       title: string[][];
       language: string[][];
+      caption: string[][];
     };
   };
 }
