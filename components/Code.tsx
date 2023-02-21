@@ -46,12 +46,12 @@ export default function Code(props: ICodeBlock) {
     <div className={cx("container")}>
       <div className={cx("top_bar")}>
         <div className={cx("left_wrapper")}>
-          <div className={"icon_wrapper"}>
+          {/* <div className={"icon_wrapper"}>
             {lang &&
               ["javascript", "typescript", "json"].includes(
                 lang?.toLowerCase()
               ) && <Icon type={lang.toLowerCase() as "javascript"} />}
-          </div>
+          </div> */}
           <div className={cx("code_caption")}>{caption}</div>
         </div>
         <div className={cx("copy_button")} onClick={onClickCopyCode}>
