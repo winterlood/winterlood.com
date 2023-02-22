@@ -79,9 +79,9 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         </section>
       )}
       <section className={cx("section_post")}>
-        <div className={cx("header")}>Posts</div>
+        <div className={cx("header")}>Recent Posts</div>
         <div className={cx("post_list_wrapper")}>
-          {props.postList.map((post) => (
+          {props.postList.slice(0, 3).map((post) => (
             <PostItem key={post.id} {...post} />
           ))}
         </div>
