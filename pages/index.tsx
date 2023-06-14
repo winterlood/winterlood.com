@@ -5,7 +5,10 @@ import winterlood from "public/image/winterlood.png";
 
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { ExtendedRecordMap } from "notion-types";
-import { getExtraPageRecordMap, getPostList } from "lib/server/notion";
+import {
+  getExtraPageRecordMap,
+  getPostList,
+} from "lib/server/notion";
 import { NotionRenderer } from "react-notion-x";
 import { IPost } from "types/global";
 import PostItem from "components/PostItem";
@@ -45,7 +48,9 @@ const CONTACT_CHANNEL_LIST = [
   },
 ];
 
-const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = (
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) => {
   return (
     <div className={cx("container")}>
       <section className={cx("section_profile")}>
@@ -58,21 +63,26 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <div className={cx("name")}>이정환 </div>
           <div className={cx("aka")}>@winterlood</div>
         </div>
-        <div className={cx("descript")}>Product Oriented SW Engineer</div>
+        <div className={cx("descript")}>
+          FrontEnd Engineer | Educator | Writer
+        </div>
         <div className={cx("contact_item_list")}>
           {CONTACT_CHANNEL_LIST.map((it) => (
             <span key={`channel-${it.channelName}`}>
-              <a href={it.channelUrl} target={"_blank"} rel="noreferrer">
+              <a
+                href={it.channelUrl}
+                target={"_blank"}
+                rel="noreferrer"
+              >
                 {it.channelName}
               </a>
             </span>
           ))}
         </div>
       </section>
-
       {props.newsRecordMap && (
         <section className={cx("section_news")}>
-          <div className={cx("header")}>News</div>
+          <div className={cx("header")}>Experience</div>
           <div className={cx("record_map_wrapper")}>
             <NotionRenderer recordMap={props.newsRecordMap} />
           </div>
@@ -92,15 +102,20 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps<IProps> = async () => {
   const [newsResult, postResult] = await Promise.allSettled([
-    getExtraPageRecordMap("NEWS"),
+    getExtraPageRecordMap("EXPERIENCE"),
     getPostList(),
   ]);
 
   return {
     props: {
       newsRecordMap:
-        newsResult.status === "fulfilled" ? newsResult.value : undefined,
-      postList: postResult.status === "fulfilled" ? postResult.value || [] : [],
+        newsResult.status === "fulfilled"
+          ? newsResult.value
+          : undefined,
+      postList:
+        postResult.status === "fulfilled"
+          ? postResult.value || []
+          : [],
     },
     revalidate: 5,
   };

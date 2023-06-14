@@ -26,7 +26,9 @@ const convertPostProperties = (page: PageObjectResponse): IPost => {
         break;
       }
       case "rich_text": {
-        value = property.rich_text.map((it) => it.plain_text).join(" ");
+        value = property.rich_text
+          .map((it) => it.plain_text)
+          .join(" ");
         break;
       }
       case "multi_select": {
@@ -72,7 +74,10 @@ export const getPostDetail = async (
       const pageQueryData = pageQuery.value as PageObjectResponse;
       const recordMap = recordMapQuery.value;
       const pageInfo: IPost = convertPostProperties(pageQueryData);
-      return { postInfo: pageInfo, postRecordMap: recordMap };
+      return {
+        postInfo: pageInfo,
+        postRecordMap: recordMap,
+      };
     } else {
       throw new Error();
     }
@@ -117,7 +122,7 @@ type IExtraPageIDMap = {
 };
 
 const extraPageIDMap: IExtraPageIDMap = {
-  NEWS: "3804fb07262648edaad4b1cf0c55d011",
+  EXPERIENCE: "3804fb07262648edaad4b1cf0c55d011",
 };
 
 export const getExtraPageRecordMap = async (page: IExtraPage) => {

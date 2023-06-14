@@ -20,6 +20,6 @@ interface IPost {
   [key: string]: string | string[];
 }
 
-type IExtraPage = "NEWS";
+type IExtraPage = "EXPERIENCE";
 
 type IChildren = string | ReactElement | ReactElement[];
