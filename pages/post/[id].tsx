@@ -1,4 +1,8 @@
-import { GetStaticProps, InferGetStaticPropsType, NextPageContext } from "next";
+import {
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextPageContext,
+} from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import { getPostDetail } from "lib/server/notion";
@@ -12,10 +16,13 @@ import Utterances from "components/Utterances";
 import dynamic from "next/dynamic";
 import Ad from "components/Ad";
 
-const DynamicCode = dynamic(() => import("components/Code"), {
-  loading: () => <>코드를 불러오는 중 입니다 ...</>,
-  ssr: false,
-});
+const DynamicCode = dynamic(
+  () => import("components/Code"),
+  {
+    loading: () => <>코드를 불러오는 중 입니다 ...</>,
+    ssr: false,
+  }
+);
 const cx = classNames.bind(style);
 
 interface IProps {
@@ -43,7 +50,11 @@ export default function Page(
 
   return (
     <div className={cx("container")}>
-      <MetaHead title={title} description={subtitle} thumbnail={cover} />
+      <MetaHead
+        title={title}
+        description={subtitle}
+        thumbnail={cover}
+      />
       <div className={cx("thubmnail_wrapper")}>
         {cover && (
           <div
@@ -86,7 +97,9 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<IProps> = async (ctx) => {
+export const getStaticProps: GetStaticProps<
+  IProps
+> = async (ctx) => {
   const { id } = ctx.params as IParams;
   const detailResponse = await getPostDetail(id);
   if (detailResponse) {
@@ -97,7 +110,7 @@ export const getStaticProps: GetStaticProps<IProps> = async (ctx) => {
         postInfo,
         postRecordMap,
       },
-      revalidate: 30,
+      revalidate: 1,
     };
   } else {
     throw new Error();
