@@ -1,5 +1,6 @@
 :root {
   --page-max-width: 800px;
+  --page-inner-padding: 0 1rem;
 
   --font-h1: 2rem;
   --font-h2: 1.5rem;

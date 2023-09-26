@@ -18,11 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="kr">
+    <html lang="kr" data-theme="dark">
       <body className={cx("container")}>
-        <header className={style.header}></header>
+        <header className={cx("header")}>
+          <div className={cx("header_inner")}></div>
+        </header>
         <main className={cx("main")}>{children}</main>
-        <footer className={cx("footer")}></footer>
+        <footer className={cx("footer")}>
+          <div className={cx("footer_innner")}></div>
+        </footer>
       </body>
     </html>
   );
