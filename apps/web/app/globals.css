@@ -1,25 +1,32 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --page-max-width: 800px;
 
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --font-h1: 2rem;
+  --font-h2: 1.5rem;
+  --font-h3: 1.25rem;
+  --font-large: 1.1rem;
+  --font: 1rem;
+  --font-small: 0.9rem;
 
-  --callout-rgb: 20, 20, 20;
-  --callout-border-rgb: 108, 108, 108;
-  --card-rgb: 100, 100, 100;
-  --card-border-rgb: 200, 200, 200;
+  --primary-color: rgb(8, 126, 164);
+  --primary-tinted-color: rgb(230, 247, 255);
 
-  --glow-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    #2a8af6 0deg,
-    #a853ba 180deg,
-    #e92a67 360deg
-  );
+  --fg-color: rgb(35, 39, 47);
+  --fg-opacity-color: rgb(94, 101, 116);
+
+  --bg-color: #fff;
+  --bg-opacity-color: rgb(236, 237, 239);
+}
+
+[data-theme="dark"] {
+  --primary-color: rgb(56, 189, 248);
+  --primary-tinted-color: rgba(125, 211, 252, 0.15);
+
+  --fg-color: rgb(229, 231, 235);
+  --fg-opacity-color: rgb(153, 161, 179);
+
+  --bg-color: rgb(28, 29, 44);
+  --bg-opacity-color: rgb(48, 49, 64);
 }
 
 * {
@@ -32,16 +39,6 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {

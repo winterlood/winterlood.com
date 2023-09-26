@@ -1,0 +1,22 @@
+.container {
+  color: blue;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .header {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(212, 81, 81);
+  }
+  .main {
+    flex: 1;
+    margin: 0 auto;
+    max-width: var(--page-max-width);
+    width: 100%;
+    background-color: rgb(69, 69, 129);
+  }
+  .footer {
+    height: 100px;
+    background-color: rgb(122, 15, 15);
+  }
+}
