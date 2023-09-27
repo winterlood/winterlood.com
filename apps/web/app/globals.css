@@ -1,6 +1,8 @@
 :root {
-  --page-max-width: 800px;
+  --page-max-width: 710px;
   --page-inner-padding: 0 1rem;
+
+  --page-header-height: 50px;
 
   --font-h1: 2rem;
   --font-h2: 1.5rem;
@@ -16,6 +18,7 @@
   --fg-opacity-color: rgb(94, 101, 116);
 
   --bg-color: #fff;
+  --bg-header-color: rgba(255, 255, 255, 0.15);
   --bg-opacity-color: rgb(236, 237, 239);
 }
 
@@ -27,6 +30,7 @@
   --fg-opacity-color: rgb(153, 161, 179);
 
   --bg-color: rgb(28, 29, 44);
+  --bg-header-color: rgba(28, 29, 44, 0.15);
   --bg-opacity-color: rgb(48, 49, 64);
 }
 
