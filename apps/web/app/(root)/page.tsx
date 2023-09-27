@@ -4,5 +4,5 @@ import style from "./page.module.scss";
 const cx = classNames.bind(style);
 
 export default function Page(): JSX.Element {
-  return <main className={cx("container")}>hello</main>;
+  return <main className={cx("container")}>본문~~</main>;
 }

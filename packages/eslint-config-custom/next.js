@@ -49,6 +49,7 @@ module.exports = {
     "@typescript-eslint/consistent-indexed-object-style": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
 
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",

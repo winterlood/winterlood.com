@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import style from "./layout.module.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import themeInitializer from "util/themeInitializer";
 
 const cx = classNames.bind(style);
 
@@ -18,8 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="kr" data-theme="dark">
+    <html lang="kr">
       <body className={cx("container")}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitializer,
+          }}
+        ></script>
         <header className={cx("header")}>
           <div className={cx("header_inner")}>
             <Header />

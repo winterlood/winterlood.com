@@ -1,0 +1,59 @@
+.container {
+  $breakpoint: 768px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    .profile_img {
+      position: relative;
+
+      @include mobile {
+        width: 80px;
+        height: 80px;
+        img {
+          transform: scale(2.5) translate(6px, 20px);
+        }
+      }
+
+      @include desktop {
+        width: 100px;
+        height: 100px;
+        img {
+          transform: scale(2) translate(8px, 20px);
+        }
+      }
+
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .profile_info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .name {
+        font-size: var(--font-h2);
+        font-weight: bold;
+      }
+      .descript {
+        color: var(--fg-opacity-color);
+      }
+    }
+  }
+
+  .bio {
+    display: flex;
+    gap: 10px;
+    svg {
+      font-size: var(--font-large);
+    }
+  }
+
+  .menu {
+    margin-top: 30px;
+  }
+}

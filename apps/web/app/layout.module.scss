@@ -15,7 +15,8 @@
     border-bottom: 1px solid var(--bg-opacity-color);
 
     .header_inner {
-      width: var(--page-max-width);
+      width: 100%;
+      max-width: var(--page-max-width);
       padding: var(--page-inner-padding);
       height: inherit;
       margin: 0 auto;
@@ -23,7 +24,7 @@
   }
   .main {
     padding: var(--page-inner-padding);
-    padding-top: calc(var(--page-header-height) + 10px) !important;
+    padding-top: calc(var(--page-header-height) + 30px) !important;
     flex: 1;
     margin: 0 auto;
     width: 100%;
@@ -32,7 +33,8 @@
   .footer {
     height: 100px;
     .footer_innner {
-      width: var(--page-max-width);
+      width: 100%;
+      max-width: var(--page-max-width);
       padding: var(--page-inner-padding);
       height: inherit;
       margin: 0 auto;
