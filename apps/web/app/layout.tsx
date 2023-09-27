@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import classNames from "classnames/bind";
-import Header from "../components/Header";
 import style from "./layout.module.scss";
-import Footer from "../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const cx = classNames.bind(style);
 

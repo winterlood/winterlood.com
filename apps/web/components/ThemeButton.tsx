@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
-import type { Theme } from "../types";
+import type { Theme } from "types";
 import Icon from "./Icon";
 import style from "./ThemeButton.module.scss";
 

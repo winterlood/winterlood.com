@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import style from "./Header.module.scss";
-import ThemeChangeButton from "./ThemeButton";
+import ThemeChangeButton from "@/components/ThemeButton";
 
 const cx = classNames.bind(style);
 

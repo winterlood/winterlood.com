@@ -42,11 +42,13 @@ module.exports = {
     "@typescript-eslint/no-unsafe-call": "off",
     "react/self-closing-comp": "off",
     "react/jsx-sort-props": "off",
+    "react/no-unescaped-entities": "off",
     "unicorn/filename-case": "off",
+
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/consistent-indexed-object-style": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
 
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
