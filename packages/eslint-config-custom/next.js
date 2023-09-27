@@ -47,5 +47,11 @@ module.exports = {
     "@typescript-eslint/consistent-indexed-object-style": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/no-unescaped-entities": "off",
+
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/alt-text": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
   },
 };
