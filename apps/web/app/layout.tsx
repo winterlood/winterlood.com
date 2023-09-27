@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import style from "./layout.module.scss";
 import classNames from "classnames/bind";
-const cx = classNames.bind(style);
+import Header from "../components/Header";
+import style from "./layout.module.scss";
+import Footer from "../components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const cx = classNames.bind(style);
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -21,11 +21,15 @@ export default function RootLayout({
     <html lang="kr" data-theme="dark">
       <body className={cx("container")}>
         <header className={cx("header")}>
-          <div className={cx("header_inner")}></div>
+          <div className={cx("header_inner")}>
+            <Header />
+          </div>
         </header>
         <main className={cx("main")}>{children}</main>
         <footer className={cx("footer")}>
-          <div className={cx("footer_innner")}></div>
+          <div className={cx("footer_innner")}>
+            <Footer />
+          </div>
         </footer>
       </body>
     </html>

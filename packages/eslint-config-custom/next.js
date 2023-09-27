@@ -42,5 +42,10 @@ module.exports = {
     "@typescript-eslint/no-unsafe-call": "off",
     "react/self-closing-comp": "off",
     "react/jsx-sort-props": "off",
+    "unicorn/filename-case": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/no-unescaped-entities": "off",
   },
 };
