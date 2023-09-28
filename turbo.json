@@ -1,13 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": ["NEXT_PUBLIC_HELLO"],
+  "globalDotEnv": [".env"],
+  "globalDependencies": [".env"],
   "pipeline": {
     "build": {
+      "dotEnv": [".env"],
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},
     "dev": {
+      "dotEnv": [".env"],
       "cache": false,
       "persistent": true
     }

@@ -37,6 +37,8 @@ module.exports = {
   ignorePatterns: ["node_modules/", "dist/"],
   // add rules configurations here
   rules: {
+    "no-console": "off",
+
     "import/no-default-export": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-call": "off",
@@ -50,11 +52,21 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unsafe-argument": "off",
     "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
 
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/no-autofocus": "off",
     "jsx-a11y/click-events-have-key-events": "off",
+
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
   },
 };
