@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-export interface ICodeBlock {
+export interface NotionCodeBlock {
   block: {
     properties: {
       title: string[][];
@@ -10,7 +10,7 @@ export interface ICodeBlock {
   };
 }
 
-export interface IPost {
+export interface NotionPage {
   id: string;
   title: string;
   subtitle: string;
@@ -20,5 +20,3 @@ export interface IPost {
   thumbnail: string;
   [key: string]: string | string[];
 }
-
-export type IChildren = string | ReactElement | ReactElement[];

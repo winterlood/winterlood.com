@@ -1,12 +1,12 @@
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { IPost } from "./types";
+import { NotionPage } from "./types";
 
 export const convertPostProperties = (
   page: PageObjectResponse
-): IPost => {
+): NotionPage => {
   const { id, cover, created_time, properties } = page;
 
-  const res: Partial<IPost> = {};
+  const res: Partial<NotionPage> = {};
   Object.keys(properties).forEach((key) => {
     const property = properties[key];
     let value: string | string[] = "";

@@ -50,15 +50,38 @@ var convertPostProperties = (page) => {
 };
 
 // src/fetchPages.ts
+import { getPlaiceholder } from "plaiceholder";
+async function getPlaceholders(src) {
+  try {
+    const buffer = await fetch(src).then(
+      async (res) => Buffer.from(await res.arrayBuffer())
+    );
+    const { base64 } = await getPlaiceholder(buffer);
+    return base64;
+  } catch (err) {
+    err;
+  }
+}
 var fetchPages = async (databaseID) => {
   try {
     const queryData = await officialClient.databases.query({
       database_id: databaseID
     });
     const pages = queryData.results.map((it) => {
-      const page = it;
-      return convertPostProperties(page);
+      const rawPage = it;
+      const page = convertPostProperties(rawPage);
+      return page;
     });
+    const placeholders = await Promise.all(
+      pages.map(async (pages2) => ({
+        id: pages2.id,
+        blurDataURL: await getPlaceholders(pages2.thumbnail)
+      }))
+    );
+    return pages.map((page) => ({
+      ...page,
+      blurDataURL: placeholders.find((it) => it.id === page.id)?.blurDataURL
+    }));
     return pages;
   } catch (err) {
     return null;

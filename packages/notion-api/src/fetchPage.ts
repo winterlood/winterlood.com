@@ -1,13 +1,13 @@
 import { officialClient, recordMapClient } from "./client";
 import { ExtendedRecordMap } from "notion-types";
-import { IPost } from "./types";
+import { NotionPage } from "./types";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { convertPostProperties } from "./convertPostProperties";
 
 export const fetchPage = async (
   pageID: string
 ): Promise<
-  { info: IPost; recordMap: ExtendedRecordMap } | undefined
+  { info: NotionPage; recordMap: ExtendedRecordMap } | undefined
 > => {
   try {
     const [pageQuery, recordMapQuery] = await Promise.allSettled([
@@ -22,7 +22,9 @@ export const fetchPage = async (
     ) {
       const pageQueryData = pageQuery.value as PageObjectResponse;
       const recordMap = recordMapQuery.value;
-      const pageInfo: IPost = convertPostProperties(pageQueryData);
+      const pageInfo: NotionPage =
+        convertPostProperties(pageQueryData);
+
       return {
         info: pageInfo,
         recordMap: recordMap,

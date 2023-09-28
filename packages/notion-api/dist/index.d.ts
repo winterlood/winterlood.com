@@ -1,6 +1,15 @@
 import { ExtendedRecordMap } from 'notion-types';
 
-interface IPost {
+interface NotionCodeBlock {
+    block: {
+        properties: {
+            title: string[][];
+            language: string[][];
+            caption: string[][];
+        };
+    };
+}
+interface NotionPage {
     id: string;
     title: string;
     subtitle: string;
@@ -11,11 +20,20 @@ interface IPost {
     [key: string]: string | string[];
 }
 
-declare const fetchPages: (databaseID: string) => Promise<IPost[] | null>;
+declare const fetchPages: (databaseID: string) => Promise<NotionPage[] | {
+    blurDataURL: string | undefined;
+    id: string;
+    title: string;
+    subtitle: string;
+    tags: string[];
+    createTime: string;
+    cover: string;
+    thumbnail: string;
+}[] | null>;
 
 declare const fetchPage: (pageID: string) => Promise<{
-    info: IPost;
+    info: NotionPage;
     recordMap: ExtendedRecordMap;
 } | undefined>;
 
-export { fetchPage, fetchPages };
+export { NotionCodeBlock, NotionPage, fetchPage, fetchPages };
