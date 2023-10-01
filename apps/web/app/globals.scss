@@ -11,6 +11,7 @@
   --font-large: 1.1rem;
   --font: 1rem;
   --font-small: 0.9rem;
+  --font-extra-small: 0.7rem;
 
   --primary-color: rgb(8, 126, 164);
   --primary-tinted-color: rgb(230, 247, 255);
@@ -47,6 +48,18 @@ body {
   overflow-x: hidden;
   color: var(--fg-color);
   transition: background 0.3s ease;
+
+  @include mobile {
+    .desktop {
+      display: none;
+    }
+  }
+
+  @include desktop {
+    .mobile {
+      display: none;
+    }
+  }
 }
 
 a {

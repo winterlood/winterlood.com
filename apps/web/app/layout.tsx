@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.scss";
 import type { Metadata } from "next";
 import classNames from "classnames/bind";
 import style from "./layout.module.scss";
