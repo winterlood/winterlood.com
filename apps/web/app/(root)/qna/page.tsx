@@ -1,4 +1,4 @@
-import { fetchPages } from "util/fetchPages";
+import { fetchPages } from "util/fetch-pages";
 import Image from "next/image";
 
 export default async function Page() {

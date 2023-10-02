@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .header {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--bg-opacity-color);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .back_button_inner {
+      display: inline-block;
+    }
+    .back {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 8px;
+      color: var(--fg-opacity-color);
+      border-radius: 5px;
+      svg {
+        font-size: var(--font);
+      }
+      margin-bottom: 10px;
+    }
+    .back:hover {
+      background-color: var(--bg-opacity-color);
+    }
+
+    .title {
+      font-size: var(--font-h1);
+      text-wrap: wrap;
+      word-break: keep-all;
+    }
+
+    .subtitle {
+      color: var(--fg-opacity-color);
+    }
+    .date {
+      color: var(--fg-opacity-color);
+    }
+  }
+  .article {
+  }
+}

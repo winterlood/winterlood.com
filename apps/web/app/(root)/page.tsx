@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import style from "./page.module.scss";
-import { fetchPage } from "util/fetchPage";
+import { fetchPage } from "util/fetch-page";
 
 const cx = classNames.bind(style);
 

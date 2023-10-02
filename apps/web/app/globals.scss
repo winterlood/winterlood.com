@@ -5,7 +5,7 @@
 
   --breakpoint: 768px;
 
-  --font-h1: 2rem;
+  --font-h1: 1.7rem;
   --font-h2: 1.5rem;
   --font-h3: 1.25rem;
   --font-large: 1.1rem;
@@ -51,13 +51,13 @@ body {
 
   @include mobile {
     .desktop {
-      display: none;
+      display: none !important;
     }
   }
 
   @include desktop {
     .mobile {
-      display: none;
+      display: none !important;
     }
   }
 }

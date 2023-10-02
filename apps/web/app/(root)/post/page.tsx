@@ -1,8 +1,11 @@
-import { fetchPages } from "util/fetchPages";
+import { fetchPages } from "util/fetch-pages";
 import PostItem from "@/components/PostItem";
+import { retryer } from "util/retryer";
 
 export default async function Page() {
-  const pages = await fetchPages("POST");
+  // const pages = await fetchPages("POST");
+
+  const pages = await retryer(() => fetchPages("POST"));
 
   return (
     <div>

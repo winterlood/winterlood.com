@@ -20,6 +20,13 @@ const config = {
       "s3.us-west-2.amazonaws.com",
     ],
   },
+  webpack: (config) => {
+    config.module = {
+      ...config.module,
+      exprContextCritical: false,
+    };
+    return config;
+  },
 };
 
 export default withPlaiceholder(config);

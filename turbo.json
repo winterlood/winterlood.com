@@ -1,6 +1,5 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["NEXT_PUBLIC_HELLO"],
   "globalDotEnv": [".env"],
   "globalDependencies": [".env"],
   "pipeline": {
@@ -14,6 +13,9 @@
       "dotEnv": [".env"],
       "cache": false,
       "persistent": true
+    },
+    "start": {
+      "dotEnv": [".env"]
     }
   }
 }
