@@ -12,19 +12,9 @@ const dbIdMap: Record<Database, string> = {
   QNA: NEXT_PUBLIC_NOTION_QNA_DB_ID!,
 };
 
-export async function fetchPages(db: Database): Promise<
-  | NotionPage[]
-  | {
-      blurDataURL: string | undefined;
-      id: string;
-      title: string;
-      subtitle: string;
-      tags: string[];
-      createTime: string;
-      cover: string;
-      thumbnail: string;
-    }[]
-> {
+export async function fetchPages(
+  db: Database
+): Promise<NotionPage[]> {
   const res = await fetch(
     `${process.env.BASE_URL}/api/pages?db=${dbIdMap[db]}`,
     {

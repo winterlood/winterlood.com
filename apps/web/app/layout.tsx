@@ -5,6 +5,7 @@ import classNames from "classnames/bind";
 import style from "./layout.module.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GoogleAnalyfics from "./GoogleAnalytics";
 import themeInitializer from "util/themeInitializer";
 
 const cx = classNames.bind(style);
@@ -27,6 +28,7 @@ export default function RootLayout({
             __html: themeInitializer,
           }}
         ></script>
+        <GoogleAnalyfics />
         <header className={cx("header")}>
           <div className={cx("header_inner")}>
             <Header />

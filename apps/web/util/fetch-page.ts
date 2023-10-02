@@ -19,12 +19,13 @@ const pageIDMap: Record<Page, string> = {
 export async function fetchPage(
   id: string
 ): Promise<{ info: NotionPage; recordMap: ExtendedRecordMap }> {
-  const res = await fetch(
-    `${process.env.BASE_URL}/api/page?id=${pageIDMap[id] || id}`,
-    {
-      next: { revalidate: 10 },
-    }
-  );
+  const url = `${process.env.BASE_URL}/api/page?id=${
+    pageIDMap[id] || id
+  }`;
+  console.log(url);
+  const res = await fetch(url, {
+    next: { revalidate: 10 },
+  });
 
   if (res.ok) return res.json();
 
