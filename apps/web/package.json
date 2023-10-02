@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "dotenv -- next start",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

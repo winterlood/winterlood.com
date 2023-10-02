@@ -1,6 +1,5 @@
-import { retryer } from "util/retryer";
-import { fetchPage as fetchNotionPage } from "notion-api";
-import { cache } from "react";
+import type { NotionPage } from "notion-api";
+import type { ExtendedRecordMap } from "notion-types";
 
 type Page = "ABOUT" | "WORK" | "NEWS" | string;
 
@@ -16,13 +15,17 @@ const pageIDMap: Record<Page, string> = {
   NEWS: NEXT_PUBLIC_NOTION_NEWS_PAGE_ID!,
 };
 
-export const fetchPage = cache(async function (page: Page) {
-  console.log(`FETCH PAGE : ${page}`);
-  const data = await retryer(() =>
-    fetchNotionPage(pageIDMap[page] || page)
+export async function fetchPage(
+  id: string
+): Promise<{ info: NotionPage; recordMap: ExtendedRecordMap }> {
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/page?id=${pageIDMap[id] || id}`,
+    {
+      next: { revalidate: 10 },
+    }
   );
-  if (!data) throw new Error();
-  return data;
-});
 
-export const revalidate = 5;
+  if (!res.ok) throw new Error("");
+
+  return res.json();
+}

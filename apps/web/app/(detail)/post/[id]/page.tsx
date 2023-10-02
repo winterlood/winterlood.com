@@ -12,8 +12,13 @@ type PageProps = {
   };
 };
 
+export async function generateStaticParams() {
+  return [];
+}
+
 export default async function Page({ params: { id } }: PageProps) {
   const { info, recordMap } = await fetchPage(id);
+
   return (
     <div className={cx("container")}>
       <section className={cx("header")}>

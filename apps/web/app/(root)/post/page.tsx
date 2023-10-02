@@ -5,7 +5,7 @@ import { retryer } from "util/retryer";
 export default async function Page() {
   // const pages = await fetchPages("POST");
 
-  const pages = await retryer(() => fetchPages("POST"));
+  const pages = await fetchPages("POST");
 
   return (
     <div>
