@@ -21,9 +21,9 @@ const menus = [
     path: "qna",
   },
   {
-    key: "exp",
+    key: "work",
     name: "WORK",
-    path: "exp",
+    path: "work",
   },
 ];
 

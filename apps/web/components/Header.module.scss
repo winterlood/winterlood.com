@@ -12,6 +12,11 @@
 
   .logo {
     font-weight: bold;
+    > a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
   }
 
   .icon {
