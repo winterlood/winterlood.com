@@ -9,30 +9,32 @@ export const fetchPage = async (
 ): Promise<
   { info: NotionPage; recordMap: ExtendedRecordMap } | undefined
 > => {
-  try {
-    const [pageQuery, recordMapQuery] = await Promise.allSettled([
-      officialClient.pages.retrieve({
-        page_id: pageID,
-      }),
-      recordMapClient.getPage(pageID),
-    ]);
-    if (
-      pageQuery.status === "fulfilled" &&
-      recordMapQuery.status === "fulfilled"
-    ) {
-      const pageQueryData = pageQuery.value as PageObjectResponse;
-      const recordMap = recordMapQuery.value;
-      const pageInfo: NotionPage =
-        convertPostProperties(pageQueryData);
+  const [pageQuery, recordMapQuery] = await Promise.allSettled([
+    officialClient.pages.retrieve({
+      page_id: pageID,
+    }),
+    recordMapClient.getPage(pageID),
+  ]);
 
-      return {
-        info: pageInfo,
-        recordMap: recordMap,
-      };
-    } else {
-      throw new Error();
-    }
-  } catch (err) {
-    throw new Error(err as string);
+  if (
+    pageQuery.status === "fulfilled" &&
+    recordMapQuery.status === "fulfilled"
+  ) {
+    const pageQueryData = pageQuery.value as PageObjectResponse;
+    const recordMap = recordMapQuery.value;
+    const pageInfo: NotionPage = convertPostProperties(pageQueryData);
+
+    return {
+      info: pageInfo,
+      recordMap: recordMap,
+    };
+  } else {
+    const rejectedPageQuery = pageQuery as PromiseRejectedResult;
+    const error = new Error(rejectedPageQuery.reason) as Error & {
+      code: string;
+    };
+
+    error.code = rejectedPageQuery.reason.code;
+    throw error;
   }
 };

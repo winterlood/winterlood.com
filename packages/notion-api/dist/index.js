@@ -90,26 +90,25 @@ var fetchPages = async (databaseID) => {
 
 // src/fetchPage.ts
 var fetchPage = async (pageID) => {
-  try {
-    const [pageQuery, recordMapQuery] = await Promise.allSettled([
-      officialClient.pages.retrieve({
-        page_id: pageID
-      }),
-      recordMapClient.getPage(pageID)
-    ]);
-    if (pageQuery.status === "fulfilled" && recordMapQuery.status === "fulfilled") {
-      const pageQueryData = pageQuery.value;
-      const recordMap = recordMapQuery.value;
-      const pageInfo = convertPostProperties(pageQueryData);
-      return {
-        info: pageInfo,
-        recordMap
-      };
-    } else {
-      throw new Error();
-    }
-  } catch (err) {
-    throw new Error(err);
+  const [pageQuery, recordMapQuery] = await Promise.allSettled([
+    officialClient.pages.retrieve({
+      page_id: pageID
+    }),
+    recordMapClient.getPage(pageID)
+  ]);
+  if (pageQuery.status === "fulfilled" && recordMapQuery.status === "fulfilled") {
+    const pageQueryData = pageQuery.value;
+    const recordMap = recordMapQuery.value;
+    const pageInfo = convertPostProperties(pageQueryData);
+    return {
+      info: pageInfo,
+      recordMap
+    };
+  } else {
+    const rejectedPageQuery = pageQuery;
+    const error = new Error(rejectedPageQuery.reason);
+    error.code = rejectedPageQuery.reason.code;
+    throw error;
   }
 };
 export {

@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import type { NotionPage } from "notion-api";
 import type { ExtendedRecordMap } from "notion-types";
 
@@ -25,7 +26,11 @@ export async function fetchPage(
     }
   );
 
-  if (!res.ok) throw new Error("");
+  if (res.ok) return res.json();
 
-  return res.json();
+  if (res.status === 404) {
+    notFound();
+  } else {
+    throw new Error();
+  }
 }
