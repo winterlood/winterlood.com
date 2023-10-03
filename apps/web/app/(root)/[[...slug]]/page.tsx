@@ -1,6 +1,6 @@
 import { fetchPage } from "util/fetch-page";
 import NotionRenderer from "@/components/NotionRenderer";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import PostItem from "@/components/PostItem";
 import { fetchPages } from "util/fetch-pages";
 import QnaItem from "@/components/QnaItem";
@@ -10,20 +10,18 @@ type Props = {
   params: { slug: string[] };
 };
 
-const allowSlugs = ["post", "qna", "work"];
+const allowSlugs = ["about", "post", "qna", "work"];
 
 function getCurSlug(params: { slug: string[] }) {
   const slug = params.slug;
-  if (!slug) {
-    return "ABOUT";
-  }
+
   if (slug.length > 1) {
     notFound();
   }
 
-  const curSlug = slug[0] || "ABOUT";
+  const curSlug = slug[0];
   if (!allowSlugs.includes(curSlug)) {
-    notFound();
+    redirect("/about");
   }
 
   return curSlug.toUpperCase();
@@ -35,7 +33,7 @@ export async function generateMetadata({
   const slug = getCurSlug(params);
   const fixedTitle = "Winterlood's Blog";
   let title = "";
-  if (slug === "ABOUT") title = fixedTitle;
+  if (slug === "ABOUT") title = `${fixedTitle}`;
   else if (slug === "POST") title = `Posts - ${fixedTitle}`;
   else if (slug === "QNA") title = `Q&A - ${fixedTitle}`;
   else if (slug === "WORK") title = `Works - ${fixedTitle}`;
@@ -53,7 +51,7 @@ export default async function Page({ params }: Props) {
   const slug = getCurSlug(params);
 
   if (slug === "ABOUT" || slug === "WORK") {
-    const { info, recordMap } = await fetchPage(slug);
+    const { recordMap } = await fetchPage(slug);
     return <NotionRenderer recordMap={recordMap} />;
   }
 

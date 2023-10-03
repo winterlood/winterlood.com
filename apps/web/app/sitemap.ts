@@ -13,10 +13,12 @@ export default async function sitemap() {
     lastModified: new Date(page.createTime).toISOString(),
   }));
 
-  const routes = ["", "/post", "/qna", "/work"].map((route) => ({
-    url: `${BASE_URL}${route}`,
-    lastModified: new Date().toISOString(),
-  }));
+  const routes = ["/about", "/post", "/qna", "/work"].map(
+    (route) => ({
+      url: `${BASE_URL}${route}`,
+      lastModified: new Date().toISOString(),
+    })
+  );
 
   const res = [...routes, ...posts, ...qnas].sort(
     (a, b) =>

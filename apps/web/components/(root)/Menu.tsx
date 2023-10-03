@@ -8,7 +8,7 @@ const menus = [
   {
     key: "about",
     name: "소개",
-    path: "",
+    path: "about",
   },
   {
     key: "post",

@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className={cx("container")}>
       <div className={cx("logo")}>
-        <Link href={"/"}>Winterlood's</Link>
+        <Link href={"/about"}>Winterlood's</Link>
       </div>
       <div className={cx("icon")}>
         <ThemeChangeButton />
