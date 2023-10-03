@@ -10,9 +10,9 @@ type Props = {
   params: { slug: string[] };
 };
 
-export const allowSlugs = ["post", "qna", "work"];
+const allowSlugs = ["post", "qna", "work"];
 
-export function getCurSlug(params: { slug: string[] }) {
+function getCurSlug(params: { slug: string[] }) {
   const slug = params.slug;
   if (!slug) {
     return "ABOUT";
