@@ -33,8 +33,16 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
   const slug = getCurSlug(params);
+  const fixedTitle = "Winterlood's Blog";
+  let title = "";
+  if (slug === "ABOUT") title = fixedTitle;
+  else if (slug === "POST") title = `Posts - ${fixedTitle}`;
+  else if (slug === "QNA") title = `Q&A - ${fixedTitle}`;
+  else if (slug === "WORK") title = `Works - ${fixedTitle}`;
+
   return {
-    title: `Winterlood's`,
+    title: title,
+    description: "Winterlood's Blog",
   };
 }
 

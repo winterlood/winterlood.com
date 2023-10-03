@@ -16,6 +16,7 @@ export async function generateMetadata({
 
   return {
     title: `${info.title} - Winterlood`,
+    description: `${info.title} - ${info.subtitle}`,
   };
 }
 
