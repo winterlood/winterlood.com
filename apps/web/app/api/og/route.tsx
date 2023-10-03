@@ -1,37 +1,24 @@
 import { ImageResponse } from "next/server";
-import { PageCategory } from "types";
-import { fetchPage } from "util/fetch-page";
 
 // Route segment config
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Winterlood's Blog";
-export const size = {
+const size = {
   width: 1200,
   height: 630,
 };
 
-export const contentType = "image/png";
-
 // Image generation
-export default async function Image({
-  params,
-}: {
-  params: { category: PageCategory; id: string };
-}) {
-  const { id } = params;
-  const { info } = await fetchPage(id);
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const hasTitle = searchParams.has("title");
+  const title = hasTitle
+    ? searchParams.get("title")?.slice(0, 100)
+    : "Winterlood's Blog";
 
   const bold = fetch(
     new URL("public/fonts/SPOQAHANSANSNEO-BOLD.TTF", import.meta.url)
-  ).then((res) => res.arrayBuffer());
-
-  const regular = fetch(
-    new URL(
-      "public/fonts/SPOQAHANSANSNEO-REGULAR.TTF",
-      import.meta.url
-    )
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -48,6 +35,7 @@ export default async function Image({
           backgroundColor: "rgb(28, 29, 44)",
           fontSize: 32,
           fontWeight: 600,
+          fontFamily: "bold",
         }}
       >
         <div
@@ -64,9 +52,7 @@ export default async function Image({
           />
         </div>
 
-        <div style={{ marginTop: 40, color: "white" }}>
-          {info.title}
-        </div>
+        <div style={{ marginTop: 40, color: "white" }}>{title}</div>
       </div>
     ),
     {
@@ -77,10 +63,6 @@ export default async function Image({
           data: await bold,
           style: "normal",
           weight: 400,
-        },
-        {
-          name: "regular",
-          data: await regular,
         },
       ],
     }

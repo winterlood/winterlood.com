@@ -43,6 +43,9 @@ export async function generateMetadata({
   return {
     title: title,
     description: "Winterlood's Blog",
+    openGraph: {
+      images: `${process.env.BASE_URL}/api/og?title=${title}`,
+    },
   };
 }
 
