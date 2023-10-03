@@ -1,3 +1,7 @@
 {
-  "todo-tree.tree.showBadges": true
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ]
 }

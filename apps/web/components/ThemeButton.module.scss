@@ -1,0 +1,13 @@
+.container {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.2s;
+  svg {
+    color: var(--fg-opacity-color);
+  }
+}
+
+.container :hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}

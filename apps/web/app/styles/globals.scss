@@ -1,0 +1,68 @@
+:root {
+  --page-max-width: 710px;
+  --page-inner-padding: 0 1rem;
+  --page-header-height: 50px;
+
+  --breakpoint: 768px;
+
+  --font-h1: 1.7rem;
+  --font-h2: 1.5rem;
+  --font-h3: 1.25rem;
+  --font-large: 1.1rem;
+  --font: 1rem;
+  --font-small: 0.9rem;
+  --font-extra-small: 0.7rem;
+
+  --primary-color: rgb(8, 126, 164);
+  --primary-tinted-color: rgb(230, 247, 255);
+
+  --fg-color: rgb(35, 39, 47);
+  --fg-opacity-color: rgb(94, 101, 116);
+
+  --bg-color: #fff;
+  --bg-header-color: rgba(255, 255, 255, 0.15);
+  --bg-opacity-color: rgb(236, 237, 239);
+}
+
+[data-theme="dark"] {
+  --primary-color: rgb(56, 189, 248);
+  --primary-tinted-color: rgba(125, 211, 252, 0.15);
+
+  --fg-color: rgb(229, 231, 235);
+  --fg-opacity-color: rgb(153, 161, 179);
+
+  --bg-color: rgb(28, 29, 44);
+  --bg-header-color: rgba(28, 29, 44, 0.15);
+  --bg-opacity-color: rgb(48, 49, 64);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: var(--fg-color);
+  transition: background 0.3s ease;
+
+  @include mobile {
+    .desktop {
+      display: none !important;
+    }
+  }
+
+  @include desktop {
+    .mobile {
+      display: none !important;
+    }
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
