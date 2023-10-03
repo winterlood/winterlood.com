@@ -23,7 +23,7 @@ export async function fetchPage(
     pageIDMap[id] || id
   }`;
   const res = await fetch(url, {
-    next: { revalidate: 10 },
+    next: { revalidate: 1 },
   });
 
   if (res.ok) return res.json();

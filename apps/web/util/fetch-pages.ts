@@ -18,7 +18,7 @@ export async function fetchPages(
   const res = await fetch(
     `${process.env.BASE_URL}/api/pages?db=${dbIdMap[db]}`,
     {
-      next: { revalidate: 10 },
+      next: { revalidate: 1 },
     }
   );
 
