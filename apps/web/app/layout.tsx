@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GARegister from "./GARegister";
 import themeInitializer from "util/themeInitializer";
+import NextTopLoader from "nextjs-toploader";
 
 const cx = classNames.bind(style);
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           }}
         ></script>
         <GARegister />
+        <NextTopLoader />
         <header className={cx("header")}>
           <div className={cx("header_inner")}>
             <Header />
