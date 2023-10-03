@@ -22,7 +22,6 @@ export async function fetchPage(
   const url = `${process.env.BASE_URL}/api/page?id=${
     pageIDMap[id] || id
   }`;
-  console.log(url);
   const res = await fetch(url, {
     next: { revalidate: 10 },
   });

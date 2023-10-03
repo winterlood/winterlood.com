@@ -36,11 +36,19 @@
       flex-direction: column;
       gap: 10px;
       .name {
-        font-size: var(--font-h2);
+        font-size: var(--font-h3);
         font-weight: bold;
       }
       .descript {
         color: var(--fg-opacity-color);
+      }
+      .sns {
+        display: flex;
+        gap: 10px;
+        color: var(--fg-opacity-color);
+        svg {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -52,7 +60,6 @@
       font-size: var(--font-large);
     }
   }
-
   .menu {
     margin-top: 30px;
   }

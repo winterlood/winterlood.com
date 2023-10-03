@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import * as gtag from "./gtag.ts";
+import * as gtag from "../util/gtag";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation.js";
 

@@ -4,17 +4,16 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import NotionRenderer from "@/components/NotionRenderer";
 import { fetchPage } from "util/fetch-page";
+import { PageCategory } from "types";
 
 const cx = classNames.bind(style);
 
-export default async function Page({
-  params,
-}: {
-  params: { slug: string[] };
-}) {
-  const slug = params.slug;
-  const [category, id] = slug as [string, string];
+type Props = {
+  params: { category: PageCategory; id: string };
+};
 
+export default async function Page({ params }: Props) {
+  const { category, id } = params;
   const { info, recordMap } = await fetchPage(id);
 
   return (
