@@ -1,7 +1,8 @@
 "use client";
 import classNames from "classnames/bind";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import style from "./Menu.module.scss";
+import Link from "next/link";
 
 const cx = classNames.bind(style);
 const menus = [
@@ -28,21 +29,20 @@ const menus = [
 ];
 
 export default function Menu() {
-  const router = useRouter();
   const path = usePathname();
 
   return (
     <div className={cx("container")}>
       {menus.map(({ key, name, path: curPath }) => (
-        <div
+        <Link
           key={key}
+          href={`/${curPath}`}
           className={cx("menu", {
             selected_menu: path === `/${curPath}`,
           })}
-          onClick={() => router.push(`/${curPath}`)}
         >
           {name}
-        </div>
+        </Link>
       ))}
     </div>
   );
