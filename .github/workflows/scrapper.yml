@@ -1,0 +1,47 @@
+name: CRON REVALIDATE
+on:
+  schedule:
+    - cron: "*/40 * * * *"
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+      tags:
+        description: "Test scenario tags"
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+
+    steps:
+      # checkout current Repositor
+      - uses: actions/checkout@v2
+
+      # install node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # install Cache Modules
+      # based on package-lock.json file
+      - name: Cache node modules
+        uses: actions/cache@v2.0.0
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build --filter cron-revalidator
+
+      - name: Run Action
+        run: npm run start:scrapper

@@ -4,6 +4,7 @@
     "build": "dotenv -- turbo run build",
     "dev": "dotenv -- turbo run dev",
     "start:web": "cd ./apps/web && pnpm start",
+    "start:cron": "node packages/cron-revalidator/dist/index.js",
     "lint": "dotenv -- turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
