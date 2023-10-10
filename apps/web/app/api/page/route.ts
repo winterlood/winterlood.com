@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { fetchPage as fetchNotionPage } from "notion-api";
-import { retryer } from "util/retryer";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

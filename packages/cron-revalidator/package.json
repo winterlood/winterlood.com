@@ -1,0 +1,23 @@
+{
+  "name": "cron-revalidator",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "sitemapper": "^3.2.6",
+    "tsup": "^7.2.0"
+  },
+  "devDependencies": {
+    "tsconfig": "workspace:*"
+  }
+}
