@@ -48,4 +48,4 @@ jobs:
         run: pnpm build --filter cron-revalidator
 
       - name: Run Action
-        run: npm run start:scrapper
+        run: ㅔnpm run start:scrapper
