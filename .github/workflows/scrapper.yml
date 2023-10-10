@@ -24,6 +24,10 @@ jobs:
         with:
           node-version: 18
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       # install Cache Modules
       # based on package-lock.json file
       - name: Cache node modules
