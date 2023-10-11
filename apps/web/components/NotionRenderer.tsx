@@ -35,13 +35,7 @@ const Equation = dynamic(() =>
     (m) => m.Equation
   )
 );
-const Pdf = dynamic(
-  () =>
-    import("react-notion-x/build/third-party/pdf").then((m) => m.Pdf),
-  {
-    ssr: false,
-  }
-);
+
 const Modal = dynamic(
   () =>
     import("react-notion-x/build/third-party/modal").then((m) => {
@@ -64,7 +58,6 @@ export default function NotionRenderer(props: Props) {
         Collection: null,
         Code,
         Equation,
-        Pdf,
         Modal,
       }}
     />

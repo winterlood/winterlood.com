@@ -75,6 +75,9 @@ importers:
       react-icons:
         specifier: ^4.11.0
         version: 4.11.0(react@18.2.0)
+      react-loading-skeleton:
+        specifier: ^3.3.1
+        version: 3.3.1(react@18.2.0)
       react-notion-x:
         specifier: ^6.16.0
         version: 6.16.0(@babel/runtime@7.23.1)(react-dom@18.2.0)(react@18.2.0)(webpack@5.88.2)
@@ -106,15 +109,6 @@ importers:
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
-
-  packages/cron-revalidator:
-    dependencies:
-      sitemapper:
-        specifier: ^3.2.6
-        version: 3.2.6
-      tsup:
-        specifier: ^7.2.0
-        version: 7.2.0
 
   packages/eslint-config-custom:
     devDependencies:
@@ -4232,6 +4226,14 @@ packages:
 
   /react-lifecycles-compat@3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
+  /react-loading-skeleton@3.3.1(react@18.2.0):
+    resolution: {integrity: sha512-NilqqwMh2v9omN7LteiDloEVpFyMIa0VGqF+ukqp0ncVlYu1sKYbYGX9JEl+GtOT9TKsh04zCHAbavnQ2USldA==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-modal@3.16.1(react-dom@18.2.0)(react@18.2.0):

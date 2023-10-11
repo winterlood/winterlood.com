@@ -25,7 +25,6 @@ const config = {
       ...config.module,
       exprContextCritical: false,
     };
-    config.externals = [...config.externals, "canvas", "jsdom"];
     return config;
   },
 };

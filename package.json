@@ -4,6 +4,7 @@
     "build": "dotenv -- turbo run build",
     "build:cron": "dotenv -- turbo run build --filter=cron-revalidator",
     "dev": "dotenv -- turbo run dev",
+    "dev:web": "dotenv -- turbo run dev --filter=web",
     "start:web": "cd ./apps/web && pnpm run start",
     "start:cron": "cd apps/cron-revalidator && pnpm run start",
     "lint": "dotenv -- turbo run lint",
