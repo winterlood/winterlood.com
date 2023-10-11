@@ -19,7 +19,7 @@ async function main() {
 
     if (res.ok) {
       const resJson = await res.json();
-      console.log({ path, ...resJson });
+      console.log({ path, ...(resJson as {}) });
     } else {
       console.error({ path, status: res.status });
     }

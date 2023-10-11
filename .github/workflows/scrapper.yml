@@ -42,10 +42,10 @@ jobs:
             ${{ runner.OS }}-build-
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
       - name: Build
-        run: pnpm build --filter cron-revalidator
+        run: pnpm run build:cron
 
       - name: Run Action
         run: pnpm run start:cron

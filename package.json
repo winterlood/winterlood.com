@@ -2,15 +2,16 @@
   "private": true,
   "scripts": {
     "build": "dotenv -- turbo run build",
+    "build:cron": "dotenv -- turbo run build --filter=cron-revalidator",
     "dev": "dotenv -- turbo run dev",
-    "start:web": "cd ./apps/web && pnpm start",
-    "start:cron": "node packages/cron-revalidator/dist/index.js",
+    "start:web": "cd ./apps/web && pnpm run start",
+    "start:cron": "cd apps/cron-revalidator && pnpm run start",
     "lint": "dotenv -- turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "dotenv-cli": "^7.3.0",
-    "eslint": "^8.48.0",
+    "eslint": "^8.51.0",
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
     "turbo": "latest"

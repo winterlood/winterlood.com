@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { fetchPage as fetchNotionPage } from "notion-api";
 
-export async function GET(request: Request) {
+export async function GET(
+  request: Request
+): Promise<Response | void> {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
 
@@ -15,13 +17,8 @@ export async function GET(request: Request) {
       status: 200,
     });
   } catch (err) {
-    switch (err.code) {
-      case "validation_error": {
-        notFound();
-        break;
-      }
-      default:
-        return null;
+    if (err.code === "validation_error") {
+      notFound();
     }
   }
 }
