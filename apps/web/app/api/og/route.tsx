@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/server";
+import localFont from "next/font/local";
 
 // Route segment config
 export const runtime = "edge";
@@ -17,8 +18,8 @@ export async function GET(request: Request) {
     ? searchParams.get("title")?.slice(0, 100)
     : "Winterlood's Blog";
 
-  const bold = fetch(
-    new URL("public/fonts/SPOQAHANSANSNEO-BOLD.TTF", import.meta.url)
+  const boldFont = fetch(
+    new URL("app/fonts/SPOQAHANSANSNEO-BOLD.TTF", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -86,7 +87,7 @@ export async function GET(request: Request) {
       fonts: [
         {
           name: "bold",
-          data: await bold,
+          data: await boldFont,
           style: "normal",
           weight: 400,
         },
