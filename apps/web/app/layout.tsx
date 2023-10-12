@@ -1,5 +1,7 @@
 import "./styles/globals.scss";
 import "./styles/notion.css";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import type { Metadata } from "next";
 import classNames from "classnames/bind";
 import style from "./layout.module.scss";

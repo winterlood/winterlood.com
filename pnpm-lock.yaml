@@ -84,9 +84,6 @@ importers:
       sass:
         specifier: ^1.69.2
         version: 1.69.2
-      sharp:
-        specifier: ^0.32.6
-        version: 0.32.6
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^13.5.4
@@ -136,9 +133,6 @@ importers:
       plaiceholder:
         specifier: ^3.0.0
         version: 3.0.0(sharp@0.32.6)
-      sharp:
-        specifier: ^0.32.6
-        version: 0.32.6
       tsup:
         specifier: ^7.2.0
         version: 7.2.0

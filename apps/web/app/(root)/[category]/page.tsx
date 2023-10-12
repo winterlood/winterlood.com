@@ -5,6 +5,7 @@ import PostItem from "@/components/PostItem";
 import { fetchPages } from "util/fetch-pages";
 import QnaItem from "@/components/QnaItem";
 import { Metadata } from "next";
+import Skeleton from "react-loading-skeleton";
 
 type Props = {
   params: { category: string };
