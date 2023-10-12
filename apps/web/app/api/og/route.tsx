@@ -29,10 +29,7 @@ export async function GET(request: Request) {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          paddingBottom: "100px",
-          backgroundColor: "rgb(28, 29, 44)",
+          backgroundImage: `url(${process.env.BASE_URL}/og_back.png)`,
           fontSize: 32,
           fontWeight: 600,
           fontFamily: "bold",
@@ -40,19 +37,48 @@ export async function GET(request: Request) {
       >
         <div
           style={{
+            flex: 1,
             display: "flex",
-            borderRadius: "50%",
-            overflow: "hidden",
+            flexDirection: "column",
+            margin: "80px 60px",
+            justifyContent: "space-between",
           }}
         >
-          <img
-            width="150"
-            height="150"
-            src={`${process.env.BASE_URL}/profile_scale_up.png`}
-          />
-        </div>
+          <div style={{ color: "rgb(200,200,200)", fontSize: "30" }}>
+            이정환 | Winterlood
+          </div>
 
-        <div style={{ marginTop: 40, color: "white" }}>{title}</div>
+          <div
+            style={{
+              color: "white",
+              fontSize: "65",
+              wordBreak: "keep-all",
+            }}
+          >
+            {title}
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                overflow: "hidden",
+                borderRadius: "50%",
+              }}
+            >
+              <img
+                width="200"
+                height="200"
+                src={`${process.env.BASE_URL}/profile_scale_up.png`}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     ),
     {

@@ -6,6 +6,7 @@ import { fetchPages } from "util/fetch-pages";
 import QnaItem from "@/components/QnaItem";
 import { Metadata } from "next";
 import Skeleton from "react-loading-skeleton";
+import { getMetaTag } from "util/metatag";
 
 type Props = {
   params: { category: string };
@@ -22,7 +23,7 @@ export async function generateMetadata({
 
   const upperCaseCategory = category.toUpperCase();
 
-  const fixedTitle = "Winterlood's Blog";
+  const fixedTitle = "이정환 블로그";
   let title = "";
   if (upperCaseCategory === "ABOUT") title = `${fixedTitle}`;
   else if (upperCaseCategory === "POST")
@@ -31,13 +32,15 @@ export async function generateMetadata({
   else if (upperCaseCategory === "WORK")
     title = `Works - ${fixedTitle}`;
 
-  return {
-    title: title,
-    description: "Winterlood's Blog",
-    openGraph: {
-      images: `${process.env.BASE_URL}/api/og?title=${title}`,
-    },
-  };
+  return getMetaTag({
+    url: `${process.env.BASE_URL}/${category}`,
+    title,
+    imageUrl: `${
+      process.env.BASE_URL
+    }/api/og?title=${encodeURIComponent(
+      "무엇이든 쉽게 설명할 방법은 있다"
+    )}`,
+  });
 }
 
 export default async function Page({ params: { category } }: Props) {
