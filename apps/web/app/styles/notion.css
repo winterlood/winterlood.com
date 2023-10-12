@@ -1124,7 +1124,6 @@ svg.notion-page-icon {
 
 .notion-callout {
   padding: 16px 16px 16px 12px;
-  display: inline-flex;
   width: 100%;
   border-radius: 3px;
   border-width: 1px;
@@ -1144,10 +1143,11 @@ svg.notion-page-icon {
   height: 24px;
   line-height: 24px;
   font-size: 1.3em;
+
+  display: none;
 }
 
 .notion-callout-text {
-  margin-left: 8px;
   white-space: pre-wrap;
   word-break: break-word;
   width: 100%;
@@ -2186,7 +2186,8 @@ svg.notion-page-icon {
 
 @media (max-width: 640px) {
   .notion-bookmark-image {
-    display: none;
+    /* display: none; */
+    flex: 1 1 120px;
   }
 }
 
