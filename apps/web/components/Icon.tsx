@@ -10,6 +10,8 @@ import {
   BiMailSend,
 } from "react-icons/bi";
 
+import { BsQuestionLg } from "react-icons/bs";
+
 import classNames from "classnames/bind";
 import style from "./Icon.module.scss";
 
@@ -23,7 +25,8 @@ export type IconType =
   | "INSTAGRAM"
   | "GITHUB"
   | "LINKEDIN"
-  | "MAIL";
+  | "MAIL"
+  | "QUESTION";
 
 const iconMap: Record<IconType, ReactNode> = {
   THEME: <MdDarkMode />,
@@ -34,6 +37,7 @@ const iconMap: Record<IconType, ReactNode> = {
   GITHUB: <BiLogoGithub />,
   LINKEDIN: <BiLogoLinkedin />,
   MAIL: <BiMailSend />,
+  QUESTION: <BsQuestionLg />,
 };
 
 export default function Icon({ type }: { type: IconType }) {

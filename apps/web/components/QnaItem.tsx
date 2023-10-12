@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 import style from "./QnaItem.module.scss";
 import { NotionPage } from "notion-api";
 import Link from "next/link";
+import Icon from "./Icon";
 
 const cx = classNames.bind(style);
 
@@ -12,6 +13,7 @@ export default function QnaItem(props: NotionPage) {
     <Link href={`/qna/${id}`}>
       <div className={cx("container")}>
         <div className={cx("container_inner")}>
+          <Icon type={"QUESTION"} />
           <div className={cx("info")}>
             <h3 className={cx("title")}>{title}</h3>
             <div className={cx("subtitle")}>{subtitle}</div>
