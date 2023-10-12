@@ -15,15 +15,16 @@ export async function generateMetadata({
   const { category, id } = params;
   const { info } = await fetchPage(id);
 
-  const title = `${info.title} - Winterlood`;
+  const title = `${category === "qna" ? "Q. " : ""}${
+    info.title
+  } - Winterlood`;
   const description = `${info.title} - ${info.subtitle}`;
-  const imageUrl = `${process.env.BASE_URL}/api/og?title=${info.title}`;
 
   return getMetaTag({
     url: `${process.env.BASE_URL}/${category}/${id}`,
     title,
     description,
-    imageUrl,
+    ogImageTitle: `${category === "qna" ? "Q. " : ""}${info.title}`,
   });
 }
 

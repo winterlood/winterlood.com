@@ -35,11 +35,7 @@ export async function generateMetadata({
   return getMetaTag({
     url: `${process.env.BASE_URL}/${category}`,
     title,
-    imageUrl: `${
-      process.env.BASE_URL
-    }/api/og?title=${encodeURIComponent(
-      "무엇이든 쉽게 설명할 방법은 있다"
-    )}`,
+    ogImageTitle: "무엇이든 쉽게 설명할 방법은 있다",
   });
 }
 
