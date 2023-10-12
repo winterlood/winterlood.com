@@ -866,10 +866,11 @@ svg.notion-page-icon {
 }
 
 .notion .notion-code {
-  font-size: 85%;
+  font-size: 110%;
 }
 
 .notion-code {
+  border: 1px solid var(--bg-opacity-color);
   position: relative;
   width: 100%;
   padding: 1em;
