@@ -690,6 +690,7 @@ svg.notion-page-icon {
   padding: 0.2em 0.9em;
   margin: 6px 0;
   font-size: 1rem;
+  color: var(--fg-opacity-color);
 }
 
 .notion-hr {
@@ -1120,7 +1121,7 @@ svg.notion-page-icon {
   caret-color: var(--fg-color);
   font-size: 14px;
   line-height: 1.4;
-  color: var(--fg-color-3);
+  color: var(--fg-opacity-color);
 }
 
 .notion-callout {

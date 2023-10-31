@@ -5,6 +5,7 @@ import Icon from "@/components/Icon";
 import NotionRenderer from "@/components/NotionRenderer";
 import { fetchPage } from "util/fetch-page";
 import { PageCategory } from "types";
+import PageViewCounter from "@/components/(detail)/PageViewCounter";
 
 const cx = classNames.bind(style);
 
@@ -25,11 +26,19 @@ export default async function Page({ params }: Props) {
             <div>전체 {category === "post" ? "포스트" : "QNA"}</div>
           </div>
         </Link>
+
         <h1 className={cx("title")}>{info.title}</h1>
         <div className={cx("subtitle")}>{info.subtitle}</div>
         <div className={cx("date")}>
-          {new Date(info.createTime).toLocaleDateString()} 작성
+          <span>
+            <PageViewCounter />
+          </span>
+          <div className={cx("sep")}></div>
+          <span>
+            {new Date(info.createTime).toLocaleDateString()} 작성
+          </span>
         </div>
+        <div className={cx("date")}></div>
         <div className={cx("tag_wrapper")}></div>
       </section>
       <article className={cx("article")}>

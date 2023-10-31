@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-analytics/data": "^4.0.1",
     "@plaiceholder/next": "^3.0.0",
     "classnames": "^2.3.2",
     "encoding": "^0.1.13",

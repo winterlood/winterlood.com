@@ -4,7 +4,7 @@
   gap: 2rem;
 
   .header {
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--bg-opacity-color);
 
     display: flex;
@@ -38,10 +38,22 @@
     }
 
     .subtitle {
-      color: var(--fg-opacity-color);
+      color: var(--fg-color);
     }
     .date {
       color: var(--fg-opacity-color);
+      font-size: var(--font-small);
+
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      > .sep {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--fg-opacity-color);
+      }
     }
   }
   .article {
