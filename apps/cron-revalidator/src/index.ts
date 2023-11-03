@@ -12,6 +12,8 @@ async function main() {
     return site.split(BASE_URL)[1];
   });
 
+  console.log(`Revalidate ${paths.length} paths`);
+
   for (let path of paths) {
     const res = await fetch(
       `${BASE_URL}/api/revalidate?path=${path}`
