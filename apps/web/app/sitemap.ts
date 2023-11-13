@@ -3,6 +3,13 @@ import { fetchPages } from "util/fetch-pages";
 const BASE_URL = process.env.BASE_URL;
 
 export default async function sitemap() {
+  const routes = ["/about", "/post", "/qna", "/work"].map(
+    (route) => ({
+      url: `${BASE_URL}${route}`,
+      lastModified: new Date().toISOString(),
+    })
+  );
+
   try {
     const [postRes, qnaRes] = await Promise.all([
       fetchPages("POST"),
@@ -21,13 +28,6 @@ export default async function sitemap() {
 
     console.log(posts, qnas);
 
-    const routes = ["/about", "/post", "/qna", "/work"].map(
-      (route) => ({
-        url: `${BASE_URL}${route}`,
-        lastModified: new Date().toISOString(),
-      })
-    );
-
     const res = [...routes, ...posts, ...qnas].sort(
       (a, b) =>
         new Date(b.lastModified).getTime() -
@@ -36,6 +36,6 @@ export default async function sitemap() {
     return res;
   } catch (e) {
     console.error(e);
-    return [];
+    return routes;
   }
 }
