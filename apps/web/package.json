@@ -14,7 +14,7 @@
     "@plaiceholder/next": "^3.0.0",
     "classnames": "^2.3.2",
     "encoding": "^0.1.13",
-    "next": "^13.5.3",
+    "next": "^14.0.2",
     "nextjs-toploader": "^1.4.2",
     "notion-api": "workspace:*",
     "notion-types": "^6.16.0",
